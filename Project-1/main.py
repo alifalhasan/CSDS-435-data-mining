@@ -3,6 +3,7 @@ from utils.evaluator import Evaluator
 
 from algorithms.knn import KNN
 from algorithms.decision_tree import DecisionTree
+from algorithms.naive_bayes import NaiveBayes
 
 
 def main():
@@ -18,6 +19,7 @@ def main():
     models = {
         "K-Nearest Neighbors": KNN(n_neighbors=7),
         "Decision Tree": DecisionTree(max_depth=5),
+        "Naive Bayes": NaiveBayes(),
     }
 
     results = {}
