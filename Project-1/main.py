@@ -6,6 +6,7 @@ from algorithms.decision_tree import DecisionTree
 from algorithms.naive_bayes import NaiveBayes
 from algorithms.svm import SVM
 from algorithms.adaboost import AdaBoost
+from algorithms.neural_network import NeuralNetwork
 
 
 def main():
@@ -24,6 +25,7 @@ def main():
         "Naive Bayes": NaiveBayes(),
         "Support Vector Machine": SVM(C=1.0),
         "AdaBoost": AdaBoost(n_estimators=32),
+        "Neural Network": NeuralNetwork(hidden_layer_sizes=(64, 32)),
     }
 
     results = {}
