@@ -5,6 +5,7 @@ from algorithms.knn import KNN
 from algorithms.decision_tree import DecisionTree
 from algorithms.naive_bayes import NaiveBayes
 from algorithms.svm import SVM
+from algorithms.adaboost import AdaBoost
 
 
 def main():
@@ -22,6 +23,7 @@ def main():
         "Decision Tree": DecisionTree(max_depth=5),
         "Naive Bayes": NaiveBayes(),
         "Support Vector Machine": SVM(C=1.0),
+        "AdaBoost": AdaBoost(n_estimators=32),
     }
 
     results = {}
