@@ -18,6 +18,3 @@ class DecisionTree:
     def predict(self, X):
         X_scaled = self.scaler.transform(X)
         return self.model.predict(X_scaled)
-
-    def get_feature_importance(self):
-        return self.model.feature_importances_  # Retrieve important features
