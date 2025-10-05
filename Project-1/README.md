@@ -53,6 +53,10 @@ Run all algorithms:
 ```bash
 python main.py
 ```
+Run Neural Network (PyTorch version):
+```bash
+python pytorch_neural_network.py
+```
 
 ## Dataset Format
 - Place datasets in `data/` folder
@@ -62,9 +66,6 @@ python main.py
 
 ## Output
 - Accuracy, Precision, Recall, F1-Score for each algorithm
-- 10-fold cross-validation results
-- Performance comparison
-- Best algorithm identification
 
 ## Algorithm Files
 1. `algorithms/knn.py` - KNN
@@ -73,3 +74,4 @@ python main.py
 4. `algorithms/svm.py` - SVM
 5. `algorithms/adaboost.py` - AdaBoost
 6. `algorithms/neural_network.py` - Neural Network (sklearn)
+7. `pytorch_neural_network.py` - Neural Network (PyTorch)
