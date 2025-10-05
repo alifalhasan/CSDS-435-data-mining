@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, StratifiedKFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
     make_scorer,
@@ -23,6 +23,10 @@ class Evaluator:
         }
 
     def cross_validate(self, model, X, y):
+        cv = StratifiedKFold(
+            n_splits=self.n_folds, shuffle=True, random_state=self.random_state
+        )
+
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
 
@@ -30,7 +34,7 @@ class Evaluator:
             model.model,
             X_scaled,
             y,
-            cv=self.n_folds,
+            cv=cv,
             scoring=self.scoring,
             return_train_score=False,
             n_jobs=-1,

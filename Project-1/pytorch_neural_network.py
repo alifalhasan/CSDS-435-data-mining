@@ -66,12 +66,14 @@ class PyTorchNeuralNetwork:
         epochs=200,
         batch_size=32,
         dropout_rate=0.3,
+        random_state=42,
     ):
         self.hidden_layers = hidden_layers
         self.learning_rate = learning_rate
         self.epochs = epochs
         self.batch_size = batch_size
         self.dropout_rate = dropout_rate
+        self.random_state = random_state
         self.scaler = StandardScaler()
         self.model = None
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -84,6 +86,13 @@ class PyTorchNeuralNetwork:
         ).to(self.device)
 
     def fit(self, X, y):
+        torch.manual_seed(self.random_state)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed(self.random_state)
+            torch.cuda.manual_seed_all(self.random_state)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+
         X_scaled = self.scaler.fit_transform(X)
 
         X_tensor = torch.FloatTensor(X_scaled).to(self.device)
@@ -125,7 +134,7 @@ class PyTorchNeuralNetwork:
                 optimizer.zero_grad()
                 outputs = self.model(batch_X)
 
-                # Ensure proper shapes
+                # Shape check korte hobe
                 if outputs.dim() == 0:
                     outputs = outputs.unsqueeze(0)
                 if batch_y.dim() == 0:
@@ -193,6 +202,12 @@ def evaluate_model(model, X, y, n_folds=10):
 
 
 def main():
+    torch.manual_seed(42)
+    np.random.seed(42)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(42)
+        torch.cuda.manual_seed_all(42)
+
     datasets = {
         "Dataset1": "data/project1_dataset1.txt",
         "Dataset2": "data/project1_dataset2.txt",
@@ -204,6 +219,7 @@ def main():
         epochs=200,
         batch_size=32,
         dropout_rate=0.3,
+        random_state=42,
     )
 
     for name, path in datasets.items():

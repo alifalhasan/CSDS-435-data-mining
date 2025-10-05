@@ -1,3 +1,21 @@
+import numpy as np
+import random
+import torch
+
+
+def set_seed(seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+
+set_seed(42)
+
 from utils.data_loader import DataLoader
 from utils.evaluator import Evaluator
 
@@ -10,9 +28,8 @@ from algorithms.neural_network import NeuralNetwork
 
 
 def main():
-
-    data_loader = DataLoader()
-    evaluator = Evaluator()
+    data_loader = DataLoader(random_state=42)
+    evaluator = Evaluator(random_state=42)
 
     datasets = {
         "Dataset1": "data/project1_dataset1.txt",
@@ -21,11 +38,11 @@ def main():
 
     models = {
         "K-Nearest Neighbors": KNN(n_neighbors=7),
-        "Decision Tree": DecisionTree(max_depth=5),
+        "Decision Tree": DecisionTree(max_depth=5, random_state=42),
         "Naive Bayes": NaiveBayes(),
-        "Support Vector Machine": SVM(C=1.0),
-        "AdaBoost": AdaBoost(n_estimators=32),
-        "Neural Network": NeuralNetwork(hidden_layer_sizes=(64, 32)),
+        "Support Vector Machine": SVM(C=1.0, random_state=42),
+        "AdaBoost": AdaBoost(n_estimators=32, random_state=42),
+        "Neural Network": NeuralNetwork(hidden_layer_sizes=(64, 32), random_state=42),
     }
 
     results = {}

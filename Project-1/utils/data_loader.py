@@ -4,26 +4,26 @@ from sklearn.preprocessing import LabelEncoder
 
 
 class DataLoader:
+    def __init__(self, random_state=42):
+        self.random_state = random_state
+        np.random.seed(random_state)
+
     def load_data(self, data_path):
         data = pd.read_csv(data_path, header=None, sep=r"\s+", engine="python")
 
-        # Convert to numpy array
-        X = data.iloc[:, :-1].values
-        y = data.iloc[:, -1].values
+        X = data.iloc[:, :-1]
+        y = data.iloc[:, -1]
 
-        X = self._fast_preprocess(X)
+        X_processed = self._preprocess_features(X)
 
-        return X, y
+        return X_processed.values, y.values
 
-    def _fast_preprocess(self, X):
-        if X.dtype == object:
-            # Using LabelEncoder for categorical data
-            X_encoded = np.zeros_like(X, dtype=float)
-            for col in range(X.shape[1]):
-                if X[:, col].dtype == object:
-                    le = LabelEncoder()
-                    X_encoded[:, col] = le.fit_transform(X[:, col])
-                else:
-                    X_encoded[:, col] = X[:, col]
-            return X_encoded
-        return X
+    def _preprocess_features(self, X):
+        X_processed = X.copy()
+
+        for col in X.columns:
+            if X[col].dtype == object:
+                le = LabelEncoder()
+                X_processed[col] = le.fit_transform(X[col])
+
+        return X_processed
