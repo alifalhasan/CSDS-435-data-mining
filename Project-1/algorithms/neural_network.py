@@ -3,7 +3,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 class NeuralNetwork:
-    def __init__(self, hidden_layer_sizes=(64, 32), random_state=42):
+    def __init__(self, hidden_layer_sizes=(100, 50), random_state=42):
         self.model = MLPClassifier(
             hidden_layer_sizes=hidden_layer_sizes,
             activation="relu",

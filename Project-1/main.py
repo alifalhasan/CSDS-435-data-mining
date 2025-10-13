@@ -42,7 +42,7 @@ def main():
         "Naive Bayes": NaiveBayes(),
         "Support Vector Machine": SVM(C=1.0, random_state=42),
         "AdaBoost": AdaBoost(n_estimators=32, random_state=42),
-        "Neural Network": NeuralNetwork(hidden_layer_sizes=(64, 32), random_state=42),
+        "Neural Network": NeuralNetwork(hidden_layer_sizes=(100, 50), random_state=42),
     }
 
     results = {}
