@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 
 class AdaBoost:
     def __init__(self, n_estimators=32, learning_rate=1.0, random_state=42):
-        base_estimator = DecisionTreeClassifier(max_depth=5, random_state=random_state)
+        base_estimator = DecisionTreeClassifier(max_depth=3, random_state=random_state)
 
         self.model = AdaBoostClassifier(
             estimator=base_estimator,

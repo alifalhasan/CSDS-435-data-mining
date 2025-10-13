@@ -3,7 +3,7 @@ from sklearn.preprocessing import StandardScaler
 
 
 class DecisionTree:
-    def __init__(self, max_depth=7, random_state=42):
+    def __init__(self, max_depth=3, random_state=42):
         self.model = DecisionTreeClassifier(
             max_depth=max_depth,
             random_state=random_state,

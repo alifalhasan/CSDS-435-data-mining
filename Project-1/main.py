@@ -38,7 +38,7 @@ def main():
 
     models = {
         "K-Nearest Neighbors": KNN(n_neighbors=7),
-        "Decision Tree": DecisionTree(max_depth=5, random_state=42),
+        "Decision Tree": DecisionTree(max_depth=3, random_state=42),
         "Naive Bayes": NaiveBayes(),
         "Support Vector Machine": SVM(C=1.0, random_state=42),
         "AdaBoost": AdaBoost(n_estimators=32, random_state=42),
