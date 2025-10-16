@@ -1,0 +1,1 @@
+This folders contain all the codes for each project written by me and my teammate.
