@@ -1,40 +1,81 @@
 CLUSTERING RESULTS - CHO
-============================================================
+================================================================================
 
 KMeans:
-  Adjusted Rand Index: 0.4192
-  Silhouette Score: 0.2462
-  Number of Clusters: 3
-  Number of Noise Points: 0
-  Optimal k: 3
-  Inertia: 3753.26
+  External Indices:
+    Adjusted Rand Index (ARI): 0.4192
+    Jaccard Coefficient: 0.4076
+  Internal Index:
+    Silhouette Score: 0.2462
+  Cluster Statistics:
+    Number of Clusters: 3
+    Number of Noise Points: 0
+  Algorithm Parameters:
+    Optimal k: 3
+    Inertia: 3753.26
 
 Hierarchical_Ward:
-  Adjusted Rand Index: 0.4174
-  Silhouette Score: 0.2007
-  Number of Clusters: 5
-  Number of Noise Points: 0
-  Linkage: ward
+  External Indices:
+    Adjusted Rand Index (ARI): 0.4174
+    Jaccard Coefficient: 0.3864
+  Internal Index:
+    Silhouette Score: 0.2007
+  Cluster Statistics:
+    Number of Clusters: 5
+    Number of Noise Points: 0
+  Algorithm Parameters:
+    Number of clusters: 5
+    Linkage: ward
 
 Hierarchical_Complete:
-  Adjusted Rand Index: 0.2947
-  Silhouette Score: -1.0000
-  Number of Clusters: 5
-  Number of Noise Points: 0
-  Linkage: complete
+  External Indices:
+    Adjusted Rand Index (ARI): 0.2947
+    Jaccard Coefficient: 0.3362
+  Internal Index:
+    Silhouette Score: -1.0000
+  Cluster Statistics:
+    Number of Clusters: 5
+    Number of Noise Points: 0
+  Algorithm Parameters:
+    Number of clusters: 5
+    Linkage: complete
 
 DBSCAN:
-  Adjusted Rand Index: 0.0629
-  Silhouette Score: 0.1391
-  Number of Clusters: 5
-  Number of Noise Points: 180
-  EPS: 2.00
-  Min Samples: 5
+  External Indices:
+    Adjusted Rand Index (ARI): 0.0629
+    Jaccard Coefficient: 0.2054
+  Internal Index:
+    Silhouette Score: 0.1391
+  Cluster Statistics:
+    Number of Clusters: 5
+    Number of Noise Points: 180
+  Algorithm Parameters:
+    EPS: 2.00
+    Min Samples: 5
 
 GaussianMixture:
-  Adjusted Rand Index: 0.3605
-  Silhouette Score: 0.2193
-  Number of Clusters: 3
-  Number of Noise Points: 0
-  Covariance Type: full
+  External Indices:
+    Adjusted Rand Index (ARI): 0.3605
+    Jaccard Coefficient: 0.3676
+  Internal Index:
+    Silhouette Score: 0.2193
+  Cluster Statistics:
+    Number of Clusters: 3
+    Number of Noise Points: 0
+  Algorithm Parameters:
+    Number of components: 3
+    Covariance Type: full
+
+Spectral:
+  External Indices:
+    Adjusted Rand Index (ARI): 0.3450
+    Jaccard Coefficient: 0.3661
+  Internal Index:
+    Silhouette Score: 0.2131
+  Cluster Statistics:
+    Number of Clusters: 3
+    Number of Noise Points: 0
+  Algorithm Parameters:
+    Number of clusters: 3
+    Affinity: rbf
 
