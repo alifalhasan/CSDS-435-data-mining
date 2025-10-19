@@ -1,0 +1,40 @@
+CLUSTERING RESULTS - CHO
+============================================================
+
+KMeans:
+  Adjusted Rand Index: 0.4192
+  Silhouette Score: 0.2462
+  Number of Clusters: 3
+  Number of Noise Points: 0
+  Optimal k: 3
+  Inertia: 3753.26
+
+Hierarchical_Ward:
+  Adjusted Rand Index: 0.4174
+  Silhouette Score: 0.2007
+  Number of Clusters: 5
+  Number of Noise Points: 0
+  Linkage: ward
+
+Hierarchical_Complete:
+  Adjusted Rand Index: 0.2947
+  Silhouette Score: -1.0000
+  Number of Clusters: 5
+  Number of Noise Points: 0
+  Linkage: complete
+
+DBSCAN:
+  Adjusted Rand Index: 0.0629
+  Silhouette Score: 0.1391
+  Number of Clusters: 5
+  Number of Noise Points: 180
+  EPS: 2.00
+  Min Samples: 5
+
+GaussianMixture:
+  Adjusted Rand Index: 0.3605
+  Silhouette Score: 0.2193
+  Number of Clusters: 3
+  Number of Noise Points: 0
+  Covariance Type: full
+

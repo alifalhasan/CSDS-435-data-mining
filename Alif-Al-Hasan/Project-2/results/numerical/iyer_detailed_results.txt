@@ -1,0 +1,40 @@
+CLUSTERING RESULTS - IYER
+============================================================
+
+KMeans:
+  Adjusted Rand Index: 0.0213
+  Silhouette Score: 0.7459
+  Number of Clusters: 2
+  Number of Noise Points: 0
+  Optimal k: 2
+  Inertia: 4248.52
+
+Hierarchical_Ward:
+  Adjusted Rand Index: 0.3790
+  Silhouette Score: -1.0000
+  Number of Clusters: 10
+  Number of Noise Points: 0
+  Linkage: ward
+
+Hierarchical_Complete:
+  Adjusted Rand Index: 0.0714
+  Silhouette Score: -1.0000
+  Number of Clusters: 10
+  Number of Noise Points: 0
+  Linkage: complete
+
+DBSCAN:
+  Adjusted Rand Index: 0.3113
+  Silhouette Score: 0.4133
+  Number of Clusters: 5
+  Number of Noise Points: 199
+  EPS: 0.70
+  Min Samples: 3
+
+GaussianMixture:
+  Adjusted Rand Index: 0.1663
+  Silhouette Score: 0.4182
+  Number of Clusters: 2
+  Number of Noise Points: 0
+  Covariance Type: full
+

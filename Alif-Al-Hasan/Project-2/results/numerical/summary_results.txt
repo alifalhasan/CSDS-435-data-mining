@@ -1,0 +1,10 @@
+SUMMARY COMPARISON - ALL DATASETS AND ALGORITHMS
+================================================================================
+
+Algorithm                 cho ARI      iyer ARI     Average ARI 
+--------------------------------------------------------------------------------
+DBSCAN                    0.0629      0.3113      0.1871      
+GaussianMixture           0.3605      0.1663      0.2634      
+Hierarchical_Complete     0.2947      0.0714      0.1830      
+Hierarchical_Ward         0.4174      0.3790      0.3982      
+KMeans                    0.4192      0.0213      0.2203      
