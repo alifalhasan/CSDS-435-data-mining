@@ -32,7 +32,7 @@ def create_tsne_comparison(
 
     features_tsne = tsne.fit_transform(features)
 
-    fig, axes = plt.subplots(2, 2, figsize=config["figure_size"])
+    fig, axes = plt.subplots(2, 3, figsize=config["figure_size"])
     axes = axes.flatten()
 
     # Plot true labels

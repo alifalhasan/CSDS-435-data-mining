@@ -12,7 +12,7 @@ def create_pca_comparison(
     features_pca = pca.fit_transform(features)
     variance_explained = pca.explained_variance_ratio_.sum()
 
-    fig, axes = plt.subplots(2, 2, figsize=config["figure_size"])
+    fig, axes = plt.subplots(2, 3, figsize=config["figure_size"])
     axes = axes.flatten()
 
     # Plot true labels
