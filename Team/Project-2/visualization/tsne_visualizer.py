@@ -79,5 +79,4 @@ def create_tsne_comparison(
 
     filename = os.path.join(results_dir, "tsne", f"{dataset_name}_tsne_comparison.png")
     plt.savefig(filename, dpi=config["plot_dpi"], bbox_inches="tight")
-    print(f"Saved t-SNE visualization: {filename}")
     plt.show()

@@ -31,13 +31,10 @@ def calculate_jaccard_score(true_labels, pred_labels):
 
 
 def calculate_metrics(true_labels, pred_labels, features):
-    """Calculate all evaluation metrics"""
-    # Calculate ARI
+    # Calculate ARI and Jaccard Coefficient
     mask = true_labels != -1
     if np.sum(mask) > 0 and len(np.unique(pred_labels[mask])) > 1:
         ari = adjusted_rand_score(true_labels[mask], pred_labels[mask])
-        
-        # Calculate Jaccard Coefficient
         jaccard = calculate_jaccard_score(true_labels[mask], pred_labels[mask])
     else:
         ari = -1

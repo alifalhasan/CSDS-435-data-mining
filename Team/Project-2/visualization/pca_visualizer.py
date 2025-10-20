@@ -59,5 +59,4 @@ def create_pca_comparison(
 
     filename = os.path.join(results_dir, "pca", f"{dataset_name}_pca_comparison.png")
     plt.savefig(filename, dpi=config["plot_dpi"], bbox_inches="tight")
-    print(f"Saved PCA visualization: {filename}")
     plt.show()

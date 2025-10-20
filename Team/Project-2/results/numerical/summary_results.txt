@@ -1,6 +1,3 @@
-SUMMARY COMPARISON - ALL DATASETS AND ALGORITHMS
-====================================================================================================
-
 ADJUSTED RAND INDEX (ARI) - External Index
 ----------------------------------------------------------------------------------------------------
 Algorithm                 cho ARI      iyer ARI     Average ARI 
@@ -21,7 +18,7 @@ Hierarchical_Ward         0.3864          0.3587          0.3725
 KMeans                    0.4076          0.1785          0.2931         
 
 
-SILHOUETTE SCORE - Internal Index (for reference)
+SILHOUETTE SCORE - Internal Index
 ----------------------------------------------------------------------------------------------------
 Algorithm                 cho Silh        iyer Silh       Average Silh   
 ----------------------------------------------------------------------------------------------------

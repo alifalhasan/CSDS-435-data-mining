@@ -1,6 +1,3 @@
-CLUSTERING RESULTS - IYER
-================================================================================
-
 KMeans:
   External Indices:
     Adjusted Rand Index (ARI): 0.0213
