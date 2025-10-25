@@ -124,28 +124,15 @@ results/
 ├── pca/
 │   ├── cho_pca_comparison.png
 │   └── iyer_pca_comparison.png
-├── tsne/
-│   ├── cho_tsne_comparison.png
-│   └── iyer_tsne_comparison.png
-└── numerical/
-    ├── cho_detailed_results.txt
-    ├── iyer_detailed_results.txt
-    └── summary_results.txt
+└── tsne/
+    ├── cho_tsne_comparison.png
+    └── iyer_tsne_comparison.png
 ```
 
 ### Visualizations
 - **PCA plots**: Linear 2D projections showing cluster separation with variance explained
 - **t-SNE plots**: Non-linear embeddings revealing complex cluster structures
 - Each plot shows true labels and results from all three algorithms with different colors for each cluster
-
-### Numerical Results
-- **Detailed files**: Per-dataset metrics for each algorithm including:
-  - Adjusted Rand Index (ARI)
-  - Jaccard Coefficient
-  - Silhouette Score
-  - Number of clusters found
-  - Algorithm-specific parameters
-- **Summary file**: Cross-dataset comparison table with averages
 
 ## Performance Metrics
 
