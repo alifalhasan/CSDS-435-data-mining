@@ -6,7 +6,7 @@ from utils.helpers import determine_dbscan_eps
 
 def dbscan_clustering(features, config, true_labels=None):
     best_labels = None
-    best_n_clusters = -1
+    best_n = -1
     best_params = None
     best_ari = -1
 
@@ -31,11 +31,11 @@ def dbscan_clustering(features, config, true_labels=None):
                 and n_clusters < len(features) // 2
                 and (
                     current_ari > best_ari
-                    or (current_ari == best_ari and n_clusters > best_n_clusters)
+                    or (current_ari == best_ari and n_clusters > best_n)
                 )
             ):
                 best_ari = current_ari
-                best_n_clusters = n_clusters
+                best_n = n_clusters
                 best_labels = labels
                 best_params = (eps, min_samples)
 

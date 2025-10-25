@@ -20,7 +20,6 @@ def create_results_folder(results_dir):
     os.makedirs(results_dir, exist_ok=True)
     os.makedirs(os.path.join(results_dir, "pca"), exist_ok=True)
     os.makedirs(os.path.join(results_dir, "tsne"), exist_ok=True)
-    os.makedirs(os.path.join(results_dir, "numerical"), exist_ok=True)
 
     return results_dir
 
