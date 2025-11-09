@@ -51,7 +51,7 @@ def run_detoxify():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     input_path = os.path.join(script_dir, "../data/bug_reports_cleaned.csv")
-    output_path = os.path.join(script_dir, "../data/processed/detoxify_results.csv")
+    output_path = os.path.join(script_dir, "../data/detoxify_results.csv")
 
     df = pd.read_csv(input_path)
     df = detect_toxicity_detoxify(df)
