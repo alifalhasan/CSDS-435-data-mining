@@ -1,22 +1,13 @@
 import os
-import re
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from datetime import datetime
 
 
-def load_and_clean_data(filepath="data/bug_reports.csv"):
+def load_and_clean_data(input_path):
     """Load and clean GitHub data"""
+    df = pd.read_csv(input_path)
 
-    # Get the directory where this script is located
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    full_path = os.path.join(script_dir, filepath)
-
-    df = pd.read_csv(full_path)
-
-    # Remove very short comments (noise)
-    df = df[df["body"].str.len() >= 10].copy()
+    df = df[df["body"].str.len() >= 10].copy()  # Remove very short comments
 
     # Remove bot comments
     bot_keywords = ["bot", "dependabot", "github-actions", "codecov"]
@@ -27,7 +18,7 @@ def load_and_clean_data(filepath="data/bug_reports.csv"):
     ]
 
     # Parse timestamp
-    df["created_at"] = pd.to_datetime(df["created_at"])
+    df["created_at"] = pd.to_datetime(df["created_at"], errors="coerce")
 
     # Extract repo name
     df["repo"] = df["issue_url"].str.extract(
@@ -43,13 +34,11 @@ def load_and_clean_data(filepath="data/bug_reports.csv"):
 
     print(f"After cleaning: {len(df)} comments")
     print(f"Repositories: {df['repo'].nunique()}")
-    print(f"\nAuthor associations:")
-    print(df["author_association"].value_counts())
 
     return df
 
 
-def exploratory_analysis(df):
+def exploratory_analysis(df, output_dir="github_bug_report/data"):
     plt.figure(figsize=(10, 4))
     df["author_association"].value_counts().plot(kind="bar")
     plt.xlabel("Author Role")
@@ -57,21 +46,12 @@ def exploratory_analysis(df):
     plt.title("Comments by Role")
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig("eda_basic.png", dpi=150)
+    plt.savefig(os.path.join(output_dir, "eda_basic.png"), dpi=150)
     plt.close()
 
-    print("\n=== Basic Statistics ===")
-    print(f"Mean comment length: {df['comment_length'].mean():.0f} chars")
-    print(
-        f"Comments with code: {df['has_code'].sum()} ({df['has_code'].mean()*100:.1f}%)"
-    )
 
-
-def preprocess_github():
-    df = load_and_clean_data("data/bug_reports.csv")
-    exploratory_analysis(df)
-
-    # Save cleaned data
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(script_dir, "data/bug_reports_cleaned.csv")
+def preprocess_github(input_path, output_path):
+    df = load_and_clean_data(input_path)
+    exploratory_analysis(df, os.path.dirname(output_path))
     df.to_csv(output_path, index=False)
+    print(f"✅ Saved cleaned dataset to: {output_path}")
