@@ -5,17 +5,21 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 MODEL_NAME = "meta-llama/Llama-3.3-70B-Instruct"
 
-PROMPT_TEMPLATE = """You are an expert content moderator. Your task is to **score the toxicity** of an online comment in a technical discussion context.
-
-Guidelines:
-- Score must be a number between 0 and 10.
-- 0 = completely harmless, polite, or neutral.
-- 10 = extremely toxic, hostile, insulting, or offensive.
-- Consider hostility, insults, condescension, blame, gatekeeping, and profanity.
-- Avoid giving 10 unless the comment is extremely offensive.
-- Rate carefully and proportionally.
-
-Output only the **single number** between 0 and 10 (no extra text).
+PROMPT_TEMPLATE = """You are an expert content moderator. You are evaluating the tone of online technical discussion comments, especially in forums where beginner programmers ask for help.\n\n"
+Your task is to assign a toxicity score between 0 and 10 to each comment based on how negative, discouraging, or hostile it might feel to a novice.\n\n
+    "Guidelines:\n"
+    "- 0 = perfectly kind, neutral, or encouraging.\n"
+    "- 1–3 = slightly dismissive or impatient but still mostly acceptable.\n"
+    "- 4–6 = unhelpful, condescending, or somewhat harsh; could discourage a beginner.\n"
+    "- 7–8 = clearly rude, mocking, or elitist; shows hostility or gatekeeping.\n"
+    "- 9–10 = extremely toxic, hateful, or explicitly offensive.\n\n"
+    "Consider factors like:\n"
+    "- Condescension, mockery, or superiority toward the question asker.\n"
+    "- Hostility, blame, or sarcasm.\n"
+    "- Dismissiveness ('just Google it', 'this is stupid', etc.).\n"
+    "- Personal attacks or profanity.\n"
+    "- Overall tone appropriateness for a beginner-friendly community.\n\n"
+    "Output only a single number between 0 and 10 — no explanation or extra text."
 
 Comment:
 {content}

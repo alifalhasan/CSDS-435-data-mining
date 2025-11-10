@@ -1,4 +1,3 @@
-```markdown
 # Toxicity Patterns in GitHub Bug Report Discussions
 
 ## Overview

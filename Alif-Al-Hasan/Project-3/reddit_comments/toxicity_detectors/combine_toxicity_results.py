@@ -34,7 +34,7 @@ def combine_and_filter_toxicity(
 
     # Filter where both models gave score >= 7
     df_high = df_combined[
-        (df_combined["detoxify_score"] >= 7) & (df_combined["llama_score"] >= 7)
+        (df_combined["detoxify_score"] >= 7) | (df_combined["llama_score"] >= 7)
     ]
     df_high.to_csv(output_high, index=False)
     print(f"✅ Saved high-toxicity comments to: {output_high}")
