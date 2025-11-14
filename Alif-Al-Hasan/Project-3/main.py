@@ -9,7 +9,7 @@ from reddit_comments.toxicity_detectors.combine_toxicity_results import (
 )
 
 
-# === GitHub bug reports pipeline ===
+# GitHub
 preprocess_github(
     input_path="github_bug_report/data/bug_reports.csv",
     output_path="github_bug_report/data/bug_reports_cleaned.csv",
@@ -26,15 +26,13 @@ run_llama_github(
 )
 
 
-# === Reddit comments filtering ===
+# Reddit
 filter_comments_by_post_ids(
     id_file="reddit_comments/data/post_ids.csv",
     comments_file="reddit_comments/data/learnprogramming_comments.jsonl",
     output_file="reddit_comments/data/filtered_comments.csv",
 )
 
-
-# === Reddit toxicity detection ===
 run_detoxify_reddit(
     input_path="reddit_comments/data/filtered_comments.csv",
     output_path="reddit_comments/data/reddit_detoxify.csv",

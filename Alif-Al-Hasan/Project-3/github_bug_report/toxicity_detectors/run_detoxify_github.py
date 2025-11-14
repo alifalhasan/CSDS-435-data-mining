@@ -24,7 +24,7 @@ def detect_toxicity_detoxify(df, threshold=0.5):
     df_result["detoxify_score"] = [r["toxicity"] for r in results]
     df_result["detoxify_toxic"] = [r["is_toxic_detoxify"] for r in results]
 
-    print(f"✅ Detoxify complete. Toxic comments: {df_result['detoxify_toxic'].sum()}")
+    print(f"Toxic comments: {df_result['detoxify_toxic'].sum()}")
     return df_result
 
 
@@ -32,4 +32,4 @@ def run_detoxify_github(input_path, output_path):
     df = pd.read_csv(input_path)
     df = detect_toxicity_detoxify(df)
     df.to_csv(output_path, index=False)
-    print(f"✅ Saved Detoxify results to: {output_path}")
+    print(f"Saved Detoxify results to: {output_path}")

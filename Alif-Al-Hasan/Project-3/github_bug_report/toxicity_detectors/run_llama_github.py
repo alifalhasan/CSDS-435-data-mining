@@ -18,7 +18,7 @@ Answer:"""
 
 
 def load_model():
-    print(f"\n🔹 Loading {MODEL_NAME} ...")
+    print(f"\nLoading {MODEL_NAME} ...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=True)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME, torch_dtype=torch.bfloat16, device_map="auto"
@@ -72,7 +72,7 @@ def detect_toxic_comments(input_path, output_path):
                 writer.writerow(row)
                 free_memory()
 
-    print(f"✅ Saved Llama toxicity results to: {output_path}")
+    print(f"Saved Llama toxicity results to: {output_path}")
 
 
 def run_llama_github(input_path, output_path):

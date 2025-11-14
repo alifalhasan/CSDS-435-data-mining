@@ -31,11 +31,11 @@ def run_llama_reddit(input_path, output_path):
     """
     Runs LLaMA toxicity scoring on Reddit comments (0–10 scale).
     """
-    print(f"\n🔹 Loading comments from: {input_path}")
+    print(f"\nLoading comments from: {input_path}")
     df = pd.read_csv(input_path)
     print(f"Loaded {len(df):,} comments")
 
-    print(f"\n🔹 Loading {MODEL_NAME}...")
+    print(f"\nLoading {MODEL_NAME}...")
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, use_fast=True)
     model = AutoModelForCausalLM.from_pretrained(
         MODEL_NAME,
@@ -72,4 +72,4 @@ def run_llama_reddit(input_path, output_path):
 
     df_out = pd.DataFrame({"comment_id": df["comment_id"], "llama_score": llama_scores})
     df_out.to_csv(output_path, index=False)
-    print(f"✅ Saved LLaMA scores to: {output_path}")
+    print(f"Saved LLaMA scores to: {output_path}")

@@ -54,4 +54,4 @@ def preprocess_github(input_path, output_path):
     df = load_and_clean_data(input_path)
     exploratory_analysis(df, os.path.dirname(output_path))
     df.to_csv(output_path, index=False)
-    print(f"✅ Saved cleaned dataset to: {output_path}")
+    print(f"Saved cleaned dataset to: {output_path}")

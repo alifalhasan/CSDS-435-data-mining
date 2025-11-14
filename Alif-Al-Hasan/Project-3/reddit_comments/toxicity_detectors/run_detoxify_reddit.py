@@ -6,15 +6,8 @@ from tqdm import tqdm
 def run_detoxify_reddit(input_path, output_path):
     """
     Run Detoxify on Reddit filtered comments and output toxicity scores (0–10 scale).
-
-    Parameters
-    ----------
-    input_path : str
-        CSV file containing columns: ['comment_id', 'body']
-    output_path : str
-        Path to save CSV with columns: ['comment_id', 'detoxify_score']
     """
-    print(f"\n🔹 Loading comments from: {input_path}")
+    print(f"\nLoading comments from: {input_path}")
     df = pd.read_csv(input_path)
     print(f"Loaded {len(df):,} comments")
 
@@ -32,4 +25,4 @@ def run_detoxify_reddit(input_path, output_path):
 
     df_out = pd.DataFrame({"comment_id": df["comment_id"], "detoxify_score": scores})
     df_out.to_csv(output_path, index=False)
-    print(f"✅ Saved Detoxify scores to: {output_path}")
+    print(f"Saved Detoxify scores to: {output_path}")
