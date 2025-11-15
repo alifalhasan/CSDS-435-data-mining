@@ -194,7 +194,7 @@ Compare results with `ground_truths.csv` (80 manually labeled toxic comments).
 
 ## References
 
-- **GitHub Dataset**: Imran, M., et al. (2025). *Silent Toxicity in Bug Report Discussions*. Under Review.
-- **Reddit Dataset**: From ongoing research on learning-centered emotions in r/learnprogramming (Under Review).
+- **GitHub Dataset**: [Silent Is Not Actually Silent: An Investigation of Toxicity on Bug Report Discussion](https://dl.acm.org/doi/abs/10.1145/3696630.3728502)
+- **Reddit Dataset**: From an ongoing research.
 - **Detoxify**: [unitaryai/detoxify](https://github.com/unitaryai/detoxify)
 - **Llama**: [meta-llama/Llama-3.3-70B-Instruct](https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct)
